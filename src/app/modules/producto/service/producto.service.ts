@@ -35,19 +35,19 @@ export class ProductoService {
     
   }
   
-  getproducto():Observable<Producto[]>{
+  getProducto():Observable<Producto[]>{
 
     return this.http.get<Producto[]>(this.baseUrl +'products').pipe(
       catchError(this.handleError)
       );
   }
 
-  getidproducto(id:number):Observable<Producto>{
+  getidProducto(id:number):Observable<Producto>{
 
     return this.http.get<Producto>(this.baseUrl +'products/'+ id )
   }
 
-  guardarproducto(data:Producto):Observable<Producto>{
+  createProducto(data:Producto):Observable<Producto>{
 
     return this.http.post<Producto>(this.baseUrl + 'products/' , data).pipe(
       catchError(this.handleError)
@@ -55,7 +55,7 @@ export class ProductoService {
 
   }
 
-  actualizarproducto(id:number,data:Producto):Observable<Producto>{
+  updateProducto(id:number,data:Producto):Observable<Producto>{
 
     return  this.http.put<Producto>(this.baseUrl + 'products/'+ id, data).pipe(
       catchError(this.handleError)
@@ -64,7 +64,7 @@ export class ProductoService {
 
   }
 
-  eliminar_producto(id:number):Observable<Producto>{
+  deleteProducto(id:number):Observable<Producto>{
 
 
     return  this.http.delete<Producto>(this.baseUrl + 'products/'+ id).pipe(

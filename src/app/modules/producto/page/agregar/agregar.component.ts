@@ -10,7 +10,7 @@ import { ProductoService } from '../../service/producto.service';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
-  styleUrls: ['./agregar.component.css']
+
 })
 export class AgregarComponent {
 
@@ -43,7 +43,7 @@ export class AgregarComponent {
     
     this._ActivatedRoute.params
      .pipe(
-      switchMap(({id}) => this._productoService.getidproducto(id))
+      switchMap(({id}) => this._productoService.getidProducto(id))
      ).subscribe(producto=> this.producto=producto);
     
   
@@ -60,7 +60,7 @@ export class AgregarComponent {
     }
    
     if(this.producto.id){
-      this._productoService.actualizarproducto(this.producto.id, this.producto).subscribe(
+      this._productoService.updateProducto(this.producto.id, this.producto).subscribe(
         { next: rep=>{
           console.log("respuesta del servidor",rep)
           Swal.fire("Exito",'Los Datos se Actualizao Corretamente','success')
@@ -74,7 +74,7 @@ export class AgregarComponent {
  
   
     }else{
-   this._productoService.guardarproducto(this.producto).subscribe( { next :rep => {
+   this._productoService.createProducto(this.producto).subscribe( { next :rep => {
     console.log("respuesta del servidor",rep)
           Swal.fire("Exito",'Los Datos se Registro Corretamente','success')
           this._router.navigate(['/home/producto/listproducto']);

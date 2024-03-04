@@ -35,7 +35,7 @@ console.log(this.usuario.username,this.usuario.password);
   }
 sin_login(){
 
-  // this.router.navigateByUrl('/navbar');
+  this._router.navigateByUrl('/home');
 }
 
 }

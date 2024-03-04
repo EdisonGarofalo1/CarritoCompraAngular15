@@ -1,0 +1,64 @@
+
+<div class="card">
+    <div class="card-body"  >
+      <br>
+      <h1 class="titulo"> Lista de Usuario </h1>
+  
+  <br>
+  <div class="col-sm-4">
+    <button type="button" class="btn btn-sm btn-primary" routerLink="/auth/auth/auth-create" ><i class="fa fa-plus" aria-hidden="true" ></i> Nuevo</button>
+  
+  </div>
+  <br>
+      <table class="table table-hover">
+  
+  
+      <thead>
+        <tr class="table-dark">
+          <th >#</th>
+          <th >id</th>
+          <th >Nombre</th>
+          <th >Telefono</th>
+          <th >correo</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+  
+      
+      </thead>
+      <tbody>
+        <tr *ngFor=" let list of listaUser; let i= index" >
+            <td>{{i+1}}</td>
+          <td>{{list.id}}</td>
+          <td>{{list.name?.firstname}} - {{list.name?.lastname}} </td>
+          <td>{{list.phone}}</td>
+          <td>{{list.email}}</td>
+       
+          
+
+           
+          
+          <td style="width: 10%;" >
+            <button routerLink="/auth/auth/auth-update/{{list.id}}" class="btn btn-primary btn-sm float-end">Editar</button>
+          
+          </td>
+        
+         
+        <td style="width: 10%;">
+         
+          <button (click)="deleteUser(list.id!)" class="btn btn-danger btn-sm float-end">Eliminar</button>
+          
+        </td>
+        
+    
+        </tr>
+        
+       
+      </tbody>
+      
+    </table>
+
+</div>
+  </div>
+    
+

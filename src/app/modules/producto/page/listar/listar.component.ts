@@ -5,21 +5,27 @@ import { ProductoService } from '../../service/producto.service';
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
-  styleUrls: ['./listar.component.css']
+ 
 })
 export class ListarComponent {
   listaproducto: Producto [] =[];
+  logueado: boolean = false;
    constructor( private _productoServoices: ProductoService){
    }
 
    ngOnInit(): void {
+
+    if (localStorage.getItem('token')) {
+      this.logueado = true;
+      
+    }
 
       this.cargarproducto()
    }
 
    cargarproducto(){
 
-    this._productoServoices.getproducto().subscribe( listaproducto=> {this.listaproducto=listaproducto;
+    this._productoServoices.getProducto().subscribe( listaproducto=> {this.listaproducto=listaproducto;
       
       console.log("listaxxxx:",this.listaproducto);})
  }

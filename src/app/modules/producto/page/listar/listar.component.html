@@ -2,7 +2,7 @@
 <div class="container-fluid"  >
     <td style="width: 10%;">
    
-    <button  routerLink="/home/producto/nuevproducto" class="btn btn-primary btn-sm float-end">Nuevo Producto</button>
+    <button *ngIf="logueado" routerLink="/home/producto/nuevproducto" class="btn btn-primary btn-sm float-end">Nuevo Producto</button>
    
     </td>
     <div class=" row row-cols-1 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 g-4">
@@ -17,10 +17,10 @@
           <p class="card-text"> categorias: {{list.category}}</p>
           <p class="card-text"> description:{{list.description}} </p>
         
-          <button type="button" routerLink="/home/producto/editproducto/{{list.id}}"    class="btn btn-secondary"> Editar </button>
+          <button type="button" *ngIf="logueado" routerLink="/home/producto/editproducto/{{list.id}}"    class="btn btn-secondary"> Editar </button>
   
         
-          <button type="button"  class="btn btn-primary" (click)="Guardarproducto(list)">Carrito</button>
+          <button  *ngIf="logueado" type="button"  class="btn btn-primary" (click)="Guardarproducto(list)">Carrito</button>
      
         </div>
       </div>  

@@ -1,0 +1,78 @@
+
+
+
+      <form [formGroup]="fromAuth" (ngSubmit)="Guardar()" class="container mt-4">
+        <h1>
+          {{ (fromAuth.get('id')?.value)? 'Editar Usuario' : 'Nuevo Usuario' }}      
+        
+      </h1>
+      <!-- <input type="text" hidden formControlName="id" id="id" class="form-control"> -->
+      
+        <div class="row">
+            <div class="col-md-6">
+        <div formGroupName="name">
+            <div class="form-group">
+              <label for="firstname">firstname:</label>
+              <input type="text" formControlName="firstname" id="firstname" class="form-control">
+              
+            </div>
+            
+            <div class="form-group">
+              <label for="lastname">lastname:</label>
+              <input type="text" formControlName="lastname" id="lastname" class="form-control">
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="col-md-6">
+        <div class="form-group">
+          <label for="email">email:</label>
+          <input type="email" formControlName="email" id="email" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="username">username:</label>
+          <input type="text" formControlName="username" id="username" class="form-control">
+        </div>
+        
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="form-group">
+          <label for="password">password:</label>
+          <input type="password" formControlName="password" id="password" class="form-control">
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">phone:</label>
+          <input type="text" formControlName="phone" id="phone" class="form-control">
+        </div>
+        
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+          <label for="__v">__v:</label>
+          <input type="text" formControlName="__v" id="__v" class="form-control">
+        </div>
+        
+       
+        
+    </div>
+
+    </div>
+    <br>
+    <div class="row mt-3">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-danger" (click)="salir()">Cancelar</button>
+          
+        </div>
+        
+        <div class="col-md-1">
+            <button type="submit" class="btn btn-primary" [disabled]="fromAuth.invalid" >  {{ (fromAuth.get('id')?.value)?  'Actualizar' : 'Crear' }}</button>
+        </div>
+    </div>
+      </form>

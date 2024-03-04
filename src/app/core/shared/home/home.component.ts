@@ -4,18 +4,31 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+ 
 })
 export class HomeComponent {
 
+  logueado:boolean=false;
+  
   constructor(private _router:Router){
 
+  
+
+  }
+  ngOnInit(): void {
+
+    if (localStorage.getItem('token')) {
+      this.logueado = true;
+      
+    }
   }
   Salir(){
 
     localStorage.removeItem('token');
     // this.router.navigate(['/Login']);
-    this._router.navigate(['/auth/login']);
+    this._router.navigate(['/login']);
   }
+
+
 
 }

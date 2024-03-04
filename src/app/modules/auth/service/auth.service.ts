@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
-import {HttpClient, HttpHeaders} from '@angular/common/http'
+import { of, Observable, throwError } from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http'
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environments';
-import { AuthResponse } from 'src/app/core/model/user';
+import { AuthResponse, User } from 'src/app/core/model/user';
 
 
 @Injectable({
@@ -65,4 +65,63 @@ export class AuthService {
 
   }
 
+
+
+  getUser():Observable<User[]>{
+
+    return this.http.get<User[]>(this.baseUrl +'users').pipe(
+      catchError(this.handleError)
+      );
+  }
+
+  getidUser(id:number):Observable<User>{
+
+    return this.http.get<User>(this.baseUrl +'users/'+ id )
+  }
+
+  createUser(data:User):Observable<User>{
+
+    return this.http.post<User>(this.baseUrl + 'users/' , data).pipe(
+      catchError(this.handleError)
+      );
+
+  }
+
+  updateUser(id:number,data:User):Observable<User>{
+
+    return  this.http.put<User>(this.baseUrl + 'users/'+ id, data).pipe(
+      catchError(this.handleError)
+      );
+
+
+  }
+
+  deleteUser(id:number):Observable<User>{
+
+
+    return  this.http.delete<User>(this.baseUrl + 'users/'+ id).pipe(
+      catchError(this.handleError)
+      );
+}
+
+
+
+private handleError(error:HttpErrorResponse){
+
+  if(error.error instanceof ErrorEvent){
+    console.error('Ocurrió un error:',error.error.message)
+
+
+  }else {
+
+    console.error(`El backend devolvió el código ${error.status}` +
+    
+    ` body era: ${error.error}`);
+
+        }
+        return throwError ('Algo malo sucedio; Por favor, inténtelo de nuevo más tarde.'
+
+        );
+  
+}
 }

@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page"  routerLink="/home/carrito/carrito" >Carrito</a>
+            <a class="nav-link" aria-current="page" *ngIf="logueado" routerLink="/home/carrito/carrito" >Carrito</a>
           </li>
           
           
@@ -16,6 +16,10 @@
           </li>
           <li class="nav-item">
             <a class="nav-link"routerLink="/home/producto/faborito">Categorias</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="logueado" routerLink="/auth/auth/auth-list">Usuario</a>
           </li>
         </ul>
         <form class="d-flex">

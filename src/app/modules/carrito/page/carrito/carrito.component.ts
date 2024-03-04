@@ -8,7 +8,7 @@ import { Agregarcarrito } from 'src/app/core/model/producto';
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
-  styleUrls: ['./carrito.component.css']
+
 })
 export class CarritoComponent {
   carrito:Agregarcarrito[]=[];
@@ -25,7 +25,8 @@ export class CarritoComponent {
     this.carrito = JSON.parse( localStorage.getItem('listaProductos')! );
  }
  vaciarcarrito(){
-  localStorage.clear();
+  // localStorage.clear();
+  localStorage.removeItem('listaProductos');
   this.carrito=[];
 
  }
@@ -51,7 +52,8 @@ if(arregloproducto[i].id === id){
 
 }
 }
-localStorage.clear();
+// localStorage.clear();
+localStorage.removeItem('listaProductos');
 localStorage.setItem("listaProductos",JSON.stringify(arregloproducto)) 
 this.cargarproducto();
 
