@@ -1,0 +1,39 @@
+
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+    
+      <br>
+      <br>
+    
+    <h1 class="text-primary"> Login</h1>
+    <br>
+
+  
+      <form>
+        <input type="text"
+         id="username" 
+        class="fadeIn second"
+         name="username"
+          [(ngModel)]="usuario.username" 
+          placeholder="login"  >
+      
+        <input type="text" id="password" 
+        class="fadeIn third" 
+        name="password"[(ngModel)]="usuario.password"
+         placeholder="password"
+       
+     >
+    
+        <input type="button"  (click)="login()" value="Log In">
+      </form>
+  
+ 
+  
+      <div id="formFooter">
+        <input type="button"  (click)="sin_login()" value="Sin Logiar">
+      </div>
+  
+    </div>
+  </div>
+
