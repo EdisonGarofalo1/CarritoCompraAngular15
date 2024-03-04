@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Producto, carrito } from 'src/app/core/model/producto';
+import { Producto, Agregarcarrito } from 'src/app/core/model/producto';
 import { ProductoService } from '../../service/producto.service';
 
 @Component({
@@ -25,15 +25,15 @@ export class ListarComponent {
  }
 
  Guardarproducto( item: Producto){
-  const iCarrito: carrito = {
+  const iCarrito: Agregarcarrito = {
      "id":item.id,
-     "category":item.category,
+     "title":item.title,
      "price": item.price,
      "cantidad":1
   }
   if(localStorage.getItem('listaProductos') === null){
 
-     const carrito:carrito[]=[];
+     const carrito:Agregarcarrito[]=[];
      carrito.push(iCarrito);
       localStorage.setItem('listaProductos', JSON.stringify(carrito));
       console.log("primero");
@@ -46,7 +46,7 @@ export class ListarComponent {
          console.log("lenght:",carritoStorageJson.length);
            let index = -1;
          for (let i= 0; i < carritoStorageJson.length; i++){
-           let itemc:carrito= carritoStorageJson[i];
+           let itemc:Agregarcarrito= carritoStorageJson[i];
            if(iCarrito.id === itemc.id){
                  index = i;
                  console.log("si encontro");
@@ -58,7 +58,7 @@ export class ListarComponent {
            carritoStorageJson.push(iCarrito)
         localStorage.setItem('listaProductos', JSON.stringify(carritoStorageJson));
      } else {
-    let itemcarrito: carrito = carritoStorageJson[index];
+    let itemcarrito: Agregarcarrito = carritoStorageJson[index];
     itemcarrito.cantidad!++;
     carritoStorageJson[index]=itemcarrito;
     localStorage.setItem('listaProductos', JSON.stringify(carritoStorageJson));

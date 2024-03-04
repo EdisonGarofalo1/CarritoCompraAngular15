@@ -1,1 +1,141 @@
-<p>agregar works!</p>
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header bg-gray py-1">
+  
+            <h1>
+                {{ ( producto.id )? 'Editar Producto' : 'Nuevo Producto' }}      
+                <!-- <small>{{ herores.superhero }}</small>  -->
+            </h1>
+  
+            <button type="button" class="btn btn-outline-primary text-white border-0 fs-5" data-bs-dismiss="modal" id="btnCerrarModal">
+                <i class="far fa-times-circle"></i>
+            </button>
+  
+        </div>
+       <div class="modal-body">
+  
+            <!-- <form  > 
+             -->            
+             <br>  
+                <div class="row">   
+                     <div class="col-12 col-lg-6">
+                        <div class="form-group mb-2">
+                          <label class="" > Nombre 
+                        
+                          </label>
+                            <input type="text"  class="form-control form-control-sm"
+                            [(ngModel)]="producto.title"
+                                 >
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="form-group mb-2">
+
+                            <label class="" >  Categorias
+                        
+                            </label>
+                            <!-- <select  class="form-control"   [(ngModel)]="producto.category"    
+                            >
+                               <option value=0 >Selecionar categorias </option>  
+
+                               <option   *ngFor=" let list of categorias"  [value]="list.id">
+                                <span> {{list.nombre}}</span>
+                            </select> -->
+
+                            <select  class="form-control"   [(ngModel)]="producto.category"    
+                            >
+                               <option value=0 >Selecionar categorias </option>  
+
+                               <option   *ngFor=" let list of categorias" >
+                                <span> {{list}}</span>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="form-group mb-2">
+                          <label class="" > Stock 
+                        
+                          </label>
+                            <input type="number"  class="form-control form-control-sm"
+                            [(ngModel)]="producto.rating.count"
+                                 >
+                        </div>
+                    </div>
+                     <div class="col-12 col-lg-6">
+                        <div class="form-group mb-2">
+                          <label class="" > precio
+                        
+                          </label>
+                            <input type="number"  class="form-control form-control-sm"
+                            [(ngModel)]="producto.price">
+                         
+                        </div>
+                    </div>    
+                    
+                    <div class="col-12 col-lg-6">
+                        <div class="form-group mb-2">
+                          <label class="" > Descripcion 
+                        
+                          </label>
+                          <textarea   [(ngModel)]="producto.description" name="" id=""class="form-control form-control-sm" cols="30" rows="10"></textarea>
+                           
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="col-12 col-lg-6">
+                        <div class="form-group mb-2">
+           
+                            <label class="" for="nomPersona "><i ></i>
+                                <span class="small">Estado:</span><span class="text-danger"></span>
+                            </label>
+                            <input type="checkbox"  class="form-check-input" 
+                            [(ngModel)]="producto.">
+                           
+                        </div>
+                    </div> -->
+                     <div class="col-12 col-lg-6">
+                        <div class="form-group mb-2">
+                          <label class="" > Imagen 
+                          </label>
+                          <img class="card-img-top"  [src]="producto.image" width="100" height="200" a
+                          lt="Card image cap">          
+                          <!-- <input type="file" name="profilepic" id="myFile" (change)='upload($event)' >
+                           <br />
+                          -->
+                        </div>
+                    </div> 
+                    
+                    <div class="col-12 col-lg-6">
+                        <div class="form-group mb-2">
+                          <label class="" > iva 
+                        
+                          </label>
+                            <input type="number"  class="form-control form-control-sm"
+                            [(ngModel)]="producto.rating.rate"
+                                 >
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="form-group mb-2">
+          
+                        <button type="button" class="btn btn-danger mt-3 mx-2" style="width:170px;"
+                        (click)="salir()"
+                    >salir</button>
+                    <button  style="width:170px;" class="btn btn-primary mt-3 mx-2"
+                    (click)="Guardar()">
+                  
+                    {{ ( producto.id )? 'Actualizar' : 'Crear' }} </button>
+                 
+                    </div>
+                </div>
+                </div>
+        
+        
+        </div>
+  
+    </div>
+  </div> 
+  

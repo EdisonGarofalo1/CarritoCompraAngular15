@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { carrito } from 'src/app/core/model/producto';
+import { Agregarcarrito } from 'src/app/core/model/producto';
+
+
+
+
 
 @Component({
   selector: 'app-carrito',
@@ -7,7 +11,7 @@ import { carrito } from 'src/app/core/model/producto';
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent {
-  carrito:carrito[]=[];
+  carrito:Agregarcarrito[]=[];
 
   ngOnInit(): void {
 

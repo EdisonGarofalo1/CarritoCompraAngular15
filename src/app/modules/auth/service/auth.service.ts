@@ -3,7 +3,8 @@ import { of, Observable } from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environments';
-import { AuthResponse } from 'src/app/core/model/User';
+import { AuthResponse } from 'src/app/core/model/user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class AuthService {
       .pipe(
         tap( resp => {
           if ( resp.token ) {
+            console.log("lo que trea el longin",resp)
             localStorage.setItem('token', resp.token! );
           }
         }),

@@ -3,26 +3,26 @@ export interface Producto {
     title?:       string;
     price?:       number;
     description?: string;
-    category?:    Category;
+    category?:    string;
     image?:       string;
-    rating?:      Rating;
+    rating:      Rating;
 }
 
-export enum Category {
-    Electronics = "electronics",
-    Jewelery = "jewelery",
-    MenSClothing = "men's clothing",
-    WomenSClothing = "women's clothing",
-}
+// export enum Category {
+//     Electronics = "electronics",
+//     Jewelery = "jewelery",
+//     MenSClothing = "men's clothing",
+//     WomenSClothing = "women's clothing",
+// }
 
 export interface Rating {
     rate:  number;
     count: number;
 }
 
-export interface carrito {
+export interface Agregarcarrito {
     id?:number,
-     category?:string,
+    title?:string,
      price?: number,
      cantidad?:number
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListarComponent } from './page/listar/listar.component';
 import { AgregarComponent } from './page/agregar/agregar.component';
 import { ProductoRoutingModule } from './producto-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,6 +14,7 @@ import { ProductoRoutingModule } from './producto-routing.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ProductoRoutingModule
   ]
 })

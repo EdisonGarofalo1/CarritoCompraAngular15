@@ -64,6 +64,16 @@ export class ProductoService {
 
   }
 
+  eliminar_producto(id:number):Observable<Producto>{
+
+
+    return  this.http.delete<Producto>(this.baseUrl + 'products/'+ id).pipe(
+      catchError(this.handleError)
+      );
+
+
+  }
+
 
 
 }
