@@ -42,5 +42,28 @@ export class ProductoService {
       );
   }
 
+  getidproducto(id:number):Observable<Producto>{
+
+    return this.http.get<Producto>(this.baseUrl +'products/'+ id )
+  }
+
+  guardarproducto(data:Producto):Observable<Producto>{
+
+    return this.http.post<Producto>(this.baseUrl + 'products/' , data).pipe(
+      catchError(this.handleError)
+      );
+
+  }
+
+  actualizarproducto(id:number,data:Producto):Observable<Producto>{
+
+    return  this.http.put<Producto>(this.baseUrl + 'products/'+ id, data).pipe(
+      catchError(this.handleError)
+      );
+
+
+  }
+
+
 
 }

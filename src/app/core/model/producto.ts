@@ -19,3 +19,10 @@ export interface Rating {
     rate:  number;
     count: number;
 }
+
+export interface carrito {
+    id?:number,
+     category?:string,
+     price?: number,
+     cantidad?:number
+}
