@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/shared/home/home.component';
+import { ValidarTokenGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   { path:'auth',
@@ -11,7 +12,9 @@ const routes: Routes = [
  {
      path:'home',
      component:HomeComponent,
-     loadChildren:()=> import('./core/shared/shared.module').then(m=>m.SharedModule)
+     loadChildren:()=> import('./core/shared/shared.module').then(m=>m.SharedModule),
+     canActivate:[ValidarTokenGuard],
+     canLoad:[ValidarTokenGuard],
  },
  {
      path:'**',
