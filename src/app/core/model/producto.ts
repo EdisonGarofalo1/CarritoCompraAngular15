@@ -1,9 +1,9 @@
 export interface Producto {
     id?:          number;
-    title?:       string;
-    price?:       number;
-    description?: string;
-    category?:    string;
+    title:       string;
+    price:       number;
+    description: string;
+    category:    string;
     image?:       string;
     rating:      Rating;
 }
@@ -21,8 +21,9 @@ export interface Rating {
 }
 
 export interface Agregarcarrito {
-    id?:number,
-    title?:string,
-     price?: number,
-     cantidad?:number
+    "id"?:number,
+    "title":string,
+     "price": number,
+     "cantidad":number,
+     
 }

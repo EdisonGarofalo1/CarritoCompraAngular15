@@ -1,5 +1,5 @@
 export interface Carrito {
-    id:       number;
+    id?:       number;
     userId:   number;
     date:     Date;
     products: Product[];

@@ -5,10 +5,13 @@
       <h1 class="titulo"> Lista de Producto </h1>
   
   <br>
+
   <div class="col-sm-4">
     <button type="button" class="btn btn-sm btn-primary" (click)="vaciarcarrito()" ><i class="fa fa-plus" aria-hidden="true" ></i> vaciar Carrito</button>
   
   </div>
+
+  
   <br>
       <table class="table table-hover">
   
@@ -18,7 +21,6 @@
           <th >#</th>
           <th >id</th>
           <th >Producto</th>
-      
           <th >Precio</th>
           <th >Cantidad</th>
           <th >Total</th>
@@ -34,15 +36,7 @@
           <td>{{list.title}}</td>
           <td>{{list.price}}</td>
           <td>{{list.cantidad}}</td>
-          <!-- <td>{{list.cantida * list.price}}</td> -->
-
-           
-          
-          <td style="width: 10%;">
-
-          </td>
-        
-         
+          <td>{{list.price*list.cantidad}}</td>         
         <td style="width: 10%;">
          
           <button (click)="eliminarproducto(list.id)" class="btn btn-danger btn-sm float-end">Eliminar</button>
@@ -55,8 +49,16 @@
        
       </tbody>
       
+      <tfoot >
+        <tr >
+          <td class="left-align">Total</td>
+          <td class="left-align">{{ total_ventas() }}</td>
+        </tr>
+      </tfoot>
     </table>
     <button (click)="GuaradaFactura()" class="btn btn-secondary btn-sm  float-end" >Realizar venta</button>
     </div>
   </div>
     
+
+

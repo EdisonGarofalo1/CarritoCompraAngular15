@@ -18,13 +18,13 @@ export class AgregarComponent {
 
    
   producto:Producto = {
-    'id':          0,
-    'title':      '',
-    'price':       0,
-    'description': '',
-    'category':undefined ,
-    'image':       '',
-    'rating': {
+    id:          0,
+    title:      '',
+    price:       0,
+    description: '',
+    category:'' ,
+    image:       '',
+    rating: {
 
       count:0,
       rate:0

@@ -31,12 +31,17 @@ export class ListarComponent {
  }
 
  Guardarproducto( item: Producto){
+
+    
   const iCarrito: Agregarcarrito = {
-     "id":item.id,
-     "title":item.title,
-     "price": item.price,
-     "cantidad":1
+     id:item.id,
+     title:item.title,
+     price: item.price,
+     cantidad:1
+  
   }
+
+
   if(localStorage.getItem('listaProductos') === null){
 
      const carrito:Agregarcarrito[]=[];
@@ -65,7 +70,9 @@ export class ListarComponent {
         localStorage.setItem('listaProductos', JSON.stringify(carritoStorageJson));
      } else {
     let itemcarrito: Agregarcarrito = carritoStorageJson[index];
-    itemcarrito.cantidad!++;
+   let unidad= itemcarrito.cantidad!++;
+   
+    // itemcarrito.total=iCarrito.price * itemcarrito.cantidad!++;
     carritoStorageJson[index]=itemcarrito;
     localStorage.setItem('listaProductos', JSON.stringify(carritoStorageJson));
 
